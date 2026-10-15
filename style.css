@@ -1225,3 +1225,19 @@ body::after { right: 0; background-position: right bottom; transform: scaleX(-1)
     }
     .hamburger i { pointer-events: none; }
 }
+
+/* Keep the expanded menu above page content; this is essential for taps on
+   mobile where the hero otherwise sits in the same stacking layer. */
+.navbar-header { z-index: 1100 !important; }
+@media (max-width: 900px) {
+    .nav-menu {
+        z-index: 1200;
+        pointer-events: auto;
+    }
+    .nav-menu.active { display: block; }
+    .nav-menu li, .nav-menu a {
+        position: relative;
+        z-index: 1201;
+        pointer-events: auto;
+    }
+}
