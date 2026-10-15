@@ -1241,3 +1241,47 @@ body::after { right: 0; background-position: right bottom; transform: scaleX(-1)
         pointer-events: auto;
     }
 }
+
+/* ========================================================================
+   Fresh geometric background — used across every page surface.
+   Deep translucent navy layers retain excellent text contrast.
+   ======================================================================== */
+body {
+    background-color: #071321;
+    background-image:
+        linear-gradient(rgba(4, 14, 28, .78), rgba(4, 14, 28, .84)),
+        url('images/FRESH BACKGROUND.jpg') !important;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hero-section {
+    background: url('images/FRESH BACKGROUND.jpg') center / cover no-repeat !important;
+}
+.hero-overlay {
+    background: linear-gradient(110deg, rgba(4, 14, 28, .72), rgba(4, 14, 28, .54)) !important;
+}
+.page-header-banner {
+    background: linear-gradient(110deg, rgba(4, 14, 28, .78), rgba(4, 14, 28, .58)), url('images/FRESH BACKGROUND.jpg') center / cover !important;
+}
+
+/* Decorative header and corner details now use the same supplied artwork. */
+body::before, body::after { background-image: url('images/FRESH BACKGROUND.jpg'); }
+.navbar-header::before, .navbar-header::after {
+    background-image: linear-gradient(90deg, rgba(8, 21, 42, .10), rgba(8, 21, 42, .45)), url('images/FRESH BACKGROUND.jpg');
+}
+
+/* Reading surfaces: visual separation from the pattern, without hiding it. */
+.section-padding { background-color: rgba(4, 14, 28, .70); }
+.feature-box, .about-card, .value-card, .pub-card, .contact-info-card, .contact-form,
+.quote-card-gold, .author-profile, .publications-intro {
+    background-color: rgba(8, 24, 45, .88);
+    backdrop-filter: blur(4px);
+}
+
+@media (max-width: 900px) {
+    body { background-attachment: scroll; background-position: center top; }
+    .hero-section, .page-header-banner { background-position: center center !important; }
+    .hero-overlay { background: linear-gradient(110deg, rgba(4, 14, 28, .76), rgba(4, 14, 28, .58)) !important; }
+}
